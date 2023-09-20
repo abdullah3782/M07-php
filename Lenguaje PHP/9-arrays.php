@@ -1,5 +1,19 @@
 <?php
-function sum_ints() {
+$age = ["Peter" => 35,
+        "John" => 13,
+        "Alice" => 15,
+];
+
+function show_age() {
+
+global $ages;
+
+foreach ($ages as $age) {
+	echo $age . '<br>';
+    }
+}
+
+function arrays() {
 
     $colors = ['red', 'green', 'blue'];
 
@@ -11,8 +25,10 @@ foreach ($colors as $color) {
 function main(): void {
 
     //local vars
-    $dado = sum_ints();
-    print($dado);
+    $array1 = arrays();
+    print($array1);
+    $array2 = show_age();
+    print($array2);
 }
 
 main();

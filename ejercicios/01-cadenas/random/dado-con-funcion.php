@@ -1,28 +1,44 @@
 <?php
 declare (strict_types=1);
 
-function println($something){
 
-    echo $something;
-    echo "<br>";
-    
-    }
-
-function sum_ints() {
+function random() {
     $dado = ['dado1.jpg','dado2.jpg','dado3.jpeg','dado4.png','dado5.jpeg','dado6.png'];
 
-$i = rand(0,count($dado)-1);
+    
 
-echo '<img src="'.$dado[$i] . '">';
+$jugador1 = rand(0,count($dado)-1);
+
+echo '<img src="'.$dado[$jugador1] . '">';
+
+$jugador2 = rand(0,count($dado)-1);
+
+echo '<img src="'.$dado[$jugador2] . '">';
+
+if($jugador1>$jugador2){
+
+    echo 'El ganador es el jugador 1';
+
+}elseif ($jugador1<$jugador2){
+
+    echo 'El ganador es el jugador 2';
+} else {
+
+    echo'Empate';
+
+}
+
+
 }
 
 
 function main(): void {
 
     //local vars
-    $dado = sum_ints();
-    println($dado);
+    print random();
+    
 }
 
 main();
 ?>
+
