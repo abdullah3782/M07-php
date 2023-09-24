@@ -2,43 +2,41 @@
 declare (strict_types=1);
 
 
-function random() {
+function jugador1() {
     $dado = ['dado1.jpg','dado2.jpg','dado3.jpeg','dado4.png','dado5.jpeg','dado6.png'];
 
-    
-
-$jugador1 = rand(0,count($dado)-1);
-
-echo '<img src="'.$dado[$jugador1] . '">';
-
-$jugador2 = rand(0,count($dado)-1);
-
-echo '<img src="'.$dado[$jugador2] . '">';
-
-if($jugador1>$jugador2){
-
-    echo 'El ganador es el jugador 1';
-
-}elseif ($jugador1<$jugador2){
-
-    echo 'El ganador es el jugador 2';
-} else {
-
-    echo'Empate';
+$i = rand(0,count($dado)-1);
+print '<img src="'.$dado[$i] . '">';
+return $dado[$i];
 
 }
 
+function jugador2() {
+    $dado2 = ['dado1.jpg','dado2.jpg','dado3.jpeg','dado4.png','dado5.jpeg','dado6.png'];
+
+$i = rand(0,count($dado2)-1);
+
+print '<img src="'.$dado2[$i] . '">';
+return $dado2[$i];
 
 }
+
 
 
 function main(): void {
 
-    //local vars
-    print random();
-    
+    $dado1 = jugador1();
+    $dado2 = jugador2();
+ if ($dado1 > $dado2) {
+    print("Ha ganado el jugador 1");
+ } elseif ($dado1 < $dado2) {
+    print("Ha ganado el jugador 2");
+ }else {
+    print("Empate");
+ }
+ 
+
 }
 
 main();
 ?>
-
