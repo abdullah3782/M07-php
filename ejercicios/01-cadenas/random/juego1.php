@@ -1,38 +1,30 @@
 <?php
-session_start(); // Inicia la sesión o la reanuda si ya existe
-
 function jugador1() {
     $dado = ['dado1.jpg','dado2.jpg','dado3.jpeg','dado4.png','dado5.jpeg','dado6.png'];
     $i = rand(0, count($dado) - 1);
-    $tirada = $i + 1; // Suma 1 porque los índices comienzan desde 0, pero el dado comienza desde 1.
-    print '<img src="'.$dado[$i]. '">';
-    return $tirada;
-}
-
-if (!isset($_SESSION['totalTiradas'])) {
-    $_SESSION['totalTiradas'] = 0;
-}
-
-if (!isset($_SESSION['tiradasRealizadas'])) {
-    $_SESSION['tiradasRealizadas'] = 0;
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Realiza una tirada
-    $resultado = jugador1();
-    
-    // Suma la tirada actual al total
-    $_SESSION['totalTiradas'] += $resultado;
-    
-    // Lleva un registro de las tiradas realizadas
-    $_SESSION['tiradasRealizadas']++;
-    
-    // Si se han realizado 3 tiradas, reinicia el total
-    if ($_SESSION['tiradasRealizadas'] >= 4) {
-        $_SESSION['totalTiradas'] = 0;
-        $_SESSION['tiradasRealizadas'] = 0;
+    print '<img src="'.$dado[$i] . '">';
+    return $i + 1; 
+  }
+  
+  function main(): void {
+    $puntos = 0;
+    $tiradas = 0;
+  
+    while ($tiradas < 3) {
+  
+        $dado1 = jugador1();
+        $puntos += $dado1;
+        $tiradas++;
+  
+        echo "La Tirada $tiradas: $dado1<br>";
+  
     }
-}
+  
+    echo "finalizado! <br>";
+    echo "La puntuación en total es de: $puntos<br>";
+  }
+  
+  main();
 ?>
 
 <!DOCTYPE html>
@@ -48,31 +40,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg" style="background-color: #faa200;">
-        <h1><a class="navbar-brand" href="#">JUEGO DEL DADO</a></h1>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="menu">
-            <ul>
-                <li>
-                    <a href="home.php">Home </a>
-                </li>
-                <li>
-                    <a href="juego1.php">juego1 </a>
-                </li>
-                <li>
-                    <a href="juego2.php">juego2 </a>
-                </li>
-                <li>
-                    <a href="juego3.php">juego3 </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+<nav class="navbar navbar-expand-lg" style="background-color: #fff34a;" id="navbar">
+            <button class="nav-link" style="color: #4D4D4D;" id="nada">Vueling</button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <button class="nav-link " id="log" >Login</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" id="reg">Register</button>
+                    </li>
+                    <li>
+                        <button class="nav-link" id="cfv">Viajes</button>
+                    </li>
+                </ul>
+               
+            </div>
+        </nav>
 
     <form method="post">
-        <button type="submit">Tirar el dado</button>
+        <button type="submit">Tiremos el dado !</button>
     </form>
     
     <?php
