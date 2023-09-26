@@ -20,7 +20,7 @@ function printArrayByPHPFunctions($array)
     print('<h2>' .  '<br>' . '-----Testing functions by var_dump($myArray)-------' . '</h2>');
     echo "<pre>";
     var_dump($array);
-    echo "</pre>";
+    echo "</pre>" ; 
 }
 
 
