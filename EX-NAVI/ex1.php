@@ -13,7 +13,7 @@ function jugador1() {
     
     
     for ($j = 0; $j < $i; $j++) {
-        echo '<img src="' . $dado[$i] . '">';
+        echo '<img src="' . $dado[$i] . '">' ;
     }
     
     return $dado[$i];
