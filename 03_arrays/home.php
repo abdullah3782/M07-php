@@ -1,7 +1,7 @@
 <?php
-      require_once './0901-functions-structure.php';
-      require_once './0902-arrays-print-functions-PHP.php';
-      require_once './data.php';
+    require_once './functions-structure.php';
+    require_once './functions-array.php';
+    require_once './data.php';
 ?>
 
 <head>
@@ -21,8 +21,9 @@
     <div class="container">
         <div class="row">
             <?php
-                $img=loadArray(20);
-                showImagesHome($img);
+                $images=loadArray(20);
+                //printArray($images);
+                showImagesHome($images);
             ?>
         </div>
     </div>

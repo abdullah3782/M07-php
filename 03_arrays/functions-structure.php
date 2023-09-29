@@ -1,4 +1,3 @@
-
 <?php
 
 //------------------------------------------------------------------------------------------------------------
@@ -25,16 +24,16 @@ function myMenu(){
             <div class="menu">
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="homee.php">Home</a>
+                    <a class="nav-link active" href="./home.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="ex1.php">Exercici 1</a>
+                    <a class="nav-link" href="./ex1.php">Exercici 1</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="ex2.php">Exercici 2</a>
+                    <a class="nav-link" href="./ex2.php">Exercici 2</a>
+                </li>
             </ul>
             </div>
-            <h1><<<<<<<<<<< CHRISTMAS CARD >>>>>>>>>>>></></h1>
             HERE;
             echo $menu;
             echo '<hr>';
@@ -64,4 +63,17 @@ function myFooter(){
 function println($something): void {
 	echo $something . '<br>';
 }
+?>
+
+<!-- Declaración de variables PHP-->
+<?php
+    $arrayIndex = ["M06", "M07", "M08", "M09"];
+    $arrayAssociative1 = [
+        "Asignaturas de primero" => "M01, M02, M03, M04, M05, M10, M11",
+        "Asignaturas de segundo" => "M06, M07, M08, M09, M012, M13"
+    ];
+    $arrayAssociative2 = [
+        "Asignaturas de primero" => ["M01", "M02", "M03", "M04", "M05", "M10", "M11"],
+        "Asignaturas de segundo" => ["M06", "M07", "M08", "M09", "M12", "M13"]
+    ];
 ?>

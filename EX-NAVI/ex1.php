@@ -1,37 +1,42 @@
 <?php
-
-require_once './0901-functions-structure.php';
-
-function jugador1() {
-    $dado = ['regalo.png','chucheria.png','gorro.png','las.png','ewq.png','campana.png','gar.png','galletas.png','cosaverde.png' ,'luces-de-navidad.png','dor.png'];
-    
-    array_shift($dado);
-
-    array_push($dado, 'kanti.png');
-
-    $i = rand(0, count($dado) - 1);
-    
-    
-    for ($j = 0; $j < $i; $j++) {
-        echo '<img src="' . $dado[$i] . '">' ;
-    }
-    
-    return $dado[$i];
-   
-
-}
-
-
-
-
-
-function main(): void {
-    jugador1();
-}
-
-myHeader();
-myMenu();
-
-main();
-myFooter();
+    require_once './0901-functions-structure.php';
+    require_once './0902-arrays-print-functions-PHP.php';
+    require_once './data.php';
 ?>
+<head>
+<?php
+println(myHeader());
+?>
+</head>
+
+<body>
+
+<?php
+println(myMenu());
+?>
+
+<?php
+$numberOfImages = randNumber(12);
+$img=loadArray($numberOfImages);
+$imgWidth = 80;
+
+
+echo '<p>Mostrant '.$numberOfImages.' img... <br></p>';
+        showImages($img, $imgWidth);
+
+echo '<hr>';     
+
+echo '<p>Eliminant una imatge de la array... <br></p>';
+deleteArrayElements($img, 1);
+showImages($img, $imgWidth);
+
+echo '<hr>';     
+echo '<p>Agregada una imatge de la array... <br></p>';
+addArrayElements($img, 1);
+showImages($img, $imgWidth);
+?>
+<?php
+    println(myFooter());
+    ?>
+</body>
+</html>

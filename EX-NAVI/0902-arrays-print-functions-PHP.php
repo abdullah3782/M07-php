@@ -1,62 +1,67 @@
 <?php
-require_once './0901-functions-structure.php';
+require_once './data.php';
+
+//Creamos una fuunciones para poder hacer un numero random
+function randNumber(int $number): int{
+
+return rand(1,$number);
+
+
+}
+
+//vamos a meter todas las imagenes en un array de manera aleatoria
+
+function loadArray (int $long): array{
+
+$array=[];
+
+for ($i=0; $i < $long+1 ; $i++) { 
+    $value = "img/".randNumber(12).".png";
+    array_push($array, $value);
+}
+
+return $array;
+}
 
 
 
-//Función print Array Pretty with print_r
-//------------------------------------------------------------------------------------------------------------
+function addArrayElements(array &$array, int $elementsToAdd): void{
+    $i = randNumber(12);
+    $value = "img/".$i.".png";
+    for($i = 0; $i < $elementsToAdd; $i++){
+        array_push($array, $value);
+    }
+}
+//Vamos a borrar el primer elemento de la array
 
-function print_Array_Pretty(mixed $array){
+function deleteArrayElements (array &$array, int $elementsToDelete): void{
+
+    for ($i=0; $i < $elementsToDelete ; $i++) { 
+       
+        array_shift($array);
+    }
+    
+}
+  
+function printArray (mixed $array): void{
+
     echo "<pre>" . print_r($array, true) . "</pre>";
+    
+}
+  
+function showImages(array $array, int $width): void{
+    foreach($array as $img){
+        echo "<img src='".$img."' width=".$width."px>";
+    }
 }
 
-//Función imprime array CON FUNCIONES: PRINT_R Y VAR_DUMP
-//------------------------------------------------------------------------------------------------------------
-function printArrayByPHPFunctions($array)
-{
-    print('<h2>' . '<br>' . '-----Testing functions by print_r($myArray) -------' . '</h2>');
-    print_Array_Pretty($array);
-
-    print('<h2>' .  '<br>' . '-----Testing functions by var_dump($myArray)-------' . '</h2>');
-    echo "<pre>";
-    var_dump($array);
-    echo "</pre>";
+function showImagesHome(array $array, int $width = 120): void{
+    foreach($array as $img){
+        echo '<div class="col-md-3">';
+        echo "<img src='".$img."' width=".$width."px>";
+        echo '</div>';
+    }
 }
 
 
-// Print HTML code: HEADER & NAVBAR
-myHeader();
-myMenu();
 ?>
-
-<body>
-    <!-- Declaración de variables PHP-->
-    <?php
-    $arrayrrayIndexado = ["M06", "M07", "M08", "M09"];
-    $arrayrrayAsociative1 = [
-        "Asignaturas de primero" => "M01, M02, M03, M04, M05, M10, M11",
-        "Asignaturas de segundo" => "M06, M07, M08, M09, M012, M13"
-    ];
-    $arrayrrayAsociative2 = [
-        "Asignaturas de primero" => ["M01", "M02", "M03", "M04", "M05", "M10", "M11"],
-        "Asignaturas de segundo" => ["M06", "M07", "M08", "M09", "M12", "M13"]
-    ];
-    ?>
-
-    <!-- WEB Code-->
-    <br><h1>TESTING AND LEARNING ABOUT PHP ARRAYS:</h1><hr><br>
-    <h2>
-        <<<<< Arrays print with PHP functions>>>>>
-    </h2>
- 
-    <?php
-    printArrayByPHPFunctions($arrayrrayAsociative1);
-
-    //Print myFooter
-    myFooter();
-    ?>
-
-
-</body>
-
-</html>
