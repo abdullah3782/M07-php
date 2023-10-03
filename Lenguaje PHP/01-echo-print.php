@@ -4,7 +4,7 @@ header('Content-Type: text/plain', true);
 
 echo 'Cadena Simple';
 
-echo 'hola que tal 
+echo 'hola que tal    
 estoy en 
 daw2 
 
