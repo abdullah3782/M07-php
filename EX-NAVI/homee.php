@@ -1,37 +1,41 @@
 <?php
-      require_once './0901-functions-structure.php';
-      require_once './0902-arrays-print-functions-PHP.php';
-      require_once './data.php';
+
+
+
+myHeader();
+myMenu();
+
 ?>
 
-<head>
-    <!-- HEAD Code -->
-    <?php
-        println(myHeader());
-    ?>
-</head>
 <body>
-    <!-- WEB Code -->
-    <?php
-        println(myMenu());
-    ?>
-
-    <h1><b>HALLOWEEN CARDS</b></h1><hr>
-    
-    <div class="container">
-        <div class="row">
-            <?php
-                $img=loadArray(20);
-                showImagesHome($img);
-            ?>
-        </div>
-    </div>
+   
+    <br><h1>WELCOME</h1><hr><br>
+    <h2>
+        <<<<< CHRISTMAS CARD >>>>>
+    </h2>
 
     <?php
-        println(myFooter());
-    ?>
-    
 
+$icono=array();
+
+  $icono [] = "1.png";
+  $icono [] =  "2.png"; 
+  $icono [] = "3.png"; 
+  $icono [] = "4.png";
+  $icono [] =  "5.png";
+  $icono [] =  "6.png";
+  $icono [] =  "7.png";
+  $icono [] =  "8.png";
+  $icono [] = "9.png";
+  $icono [] = "10.png";
+  $icono [] = "11.png";
+  $icono [] = "12.png";
+ 
+ foreach($icono as $icono){
+    echo '<img src="' . $icono . '" alt= width="100" height="100">';
+
+ }
+
+    myFooter();
+    ?>
 </body>
-
-</html>
