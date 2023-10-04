@@ -65,7 +65,6 @@ function showImagesHome(array $array, int $width = 120): void{
 
 
 
-
 function separarParImpar(array &$icono, array &$array_par, array &$array_impar){
     
     foreach ($icono as $array) {

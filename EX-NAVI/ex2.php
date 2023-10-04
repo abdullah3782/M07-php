@@ -19,16 +19,16 @@ $ciudades = [
 
 $icono = [
               
-[ "tag_name"=> "#", "likes"=> rand(1,250),  "nombre_archivo"=> 1, "ciudad"=>$ciudades[rand(0,9)] ],
-[ "tag_name"=> "#", "likes"=> rand(1,250),  "nombre_archivo"=> 2, "ciudad"=>$ciudades[rand(0,9)] ], 
-[ "tag_name"=> "#", "likes"=> rand(1,250),  "nombre_archivo"=> 3, "ciudad"=>$ciudades[rand(0,9)] ], 
-[ "tag_name"=> "#", "likes"=> rand(1,250),  "nombre_archivo"=> 4, "ciudad"=>$ciudades[rand(0,9)] ], 
-[ "tag_name"=> "#", "likes"=> rand(1,250),  "nombre_archivo"=> 5, "ciudad"=>$ciudades[rand(0,9)] ], 
-[ "tag_name"=> "#", "likes"=> rand(1,250),  "nombre_archivo"=> 6, "ciudad"=>$ciudades[rand(0,9)] ], 
-[ "tag_name"=> "#", "likes"=> rand(1,250),  "nombre_archivo"=> 7, "ciudad"=>$ciudades[rand(0,9)] ], 
-[ "tag_name"=> "#", "likes"=> rand(1,250),  "nombre_archivo"=> 8, "ciudad"=>$ciudades[rand(0,9)] ], 
-[ "tag_name"=> "#", "likes"=> rand(1,250),  "nombre_archivo"=> 9, "ciudad"=>$ciudades[rand(0,9)] ], 
-[ "tag_name"=> "#", "likes"=> rand(1,250),  "nombre_archivo"=> 10, "ciudad"=>$ciudades[rand(0,9)]], 
+[ "tag_name"=> "#", "likes"=> rand(1,50),  "nombre_archivo"=> 1, "ciudad"=>$ciudades[rand(0,9)] ],
+[ "tag_name"=> "#", "likes"=> rand(1,50),  "nombre_archivo"=> 2, "ciudad"=>$ciudades[rand(0,9)] ], 
+[ "tag_name"=> "#", "likes"=> rand(1,50),  "nombre_archivo"=> 3, "ciudad"=>$ciudades[rand(0,9)] ], 
+[ "tag_name"=> "#", "likes"=> rand(1,50),  "nombre_archivo"=> 4, "ciudad"=>$ciudades[rand(0,9)] ], 
+[ "tag_name"=> "#", "likes"=> rand(1,50),  "nombre_archivo"=> 5, "ciudad"=>$ciudades[rand(0,9)] ], 
+[ "tag_name"=> "#", "likes"=> rand(1,50),  "nombre_archivo"=> 6, "ciudad"=>$ciudades[rand(0,9)] ], 
+[ "tag_name"=> "#", "likes"=> rand(1,50),  "nombre_archivo"=> 7, "ciudad"=>$ciudades[rand(0,9)] ], 
+[ "tag_name"=> "#", "likes"=> rand(1,50),  "nombre_archivo"=> 8, "ciudad"=>$ciudades[rand(0,9)] ], 
+[ "tag_name"=> "#", "likes"=> rand(1,50),  "nombre_archivo"=> 9, "ciudad"=>$ciudades[rand(0,9)] ], 
+[ "tag_name"=> "#", "likes"=> rand(1,50),  "nombre_archivo"=> 10, "ciudad"=>$ciudades[rand(0,9)]], 
                    
 ];
 

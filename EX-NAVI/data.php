@@ -1,16 +1,16 @@
 <?php
 $allImages = [
-    'images/1.png',
-    'images/2.png',
-    'images/3.png',
-    'images/4.png',
-    'images/5.png',
-    'images/6.png',
-    'images/7.png',
-    'images/8.png',
-    'images/9.png',
-    'images/10.png',
-    'images/11.png',
-    'images/12.png',
+    'img/1.png',
+    'img/2.png',
+    'img/3.png',
+    'img/4.png',
+    'img/5.png',
+    'img/6.png',
+    'img/7.png',
+    'img/8.png',
+    'img/9.png',
+    'img/10.png',
+    'img/11.png',
+    'img/12.png',
 ]
 ?>
