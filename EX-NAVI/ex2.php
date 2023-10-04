@@ -8,7 +8,7 @@ $ciudades = [
    "Valencia",
    "Barbate",
    "Salamanca",
-   "Gijón",
+   "Gijónn",
    "Burgos",
    "Ronda",
    "Cartagena",
