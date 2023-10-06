@@ -6,9 +6,15 @@ myHeader();
 myMenu();
 
 ?>
-
+<?php
+session_start();
+?>
 <body>
-   
+<?php
+// Echo session variables that were set on previous page
+echo "Favorite color is " . $_SESSION["favcolor"] . ".<br>";
+echo "Favorite animal is " . $_SESSION["favanimal"] . ".";
+?>
     <br><h1>WELCOME</h1><hr><br>
     <h2>
         <<<<< CHRISTMAS CARD >>>>>

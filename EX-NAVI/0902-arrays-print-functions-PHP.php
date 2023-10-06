@@ -236,6 +236,8 @@ function IcononosDescendente($iconos) {
     echo '</div>';
 }
 
-
+session_start();
+$_abdullah["favcolor"] = "green";
+$_animal["favanimal"] = "cat";
 
 ?>

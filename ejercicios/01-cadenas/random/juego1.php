@@ -1,32 +1,3 @@
-<?php
-function jugador1() {
-    $dado = ['dado1.jpg','dado2.jpg','dado3.jpeg','dado4.png','dado5.jpeg','dado6.png'];
-    $i = rand(0, count($dado) - 1);
-    print '<img src="'.$dado[$i] . '">';
-    return $i + 1; 
-  }
-  
-  function main(): void {
-    $puntos = 0;
-    $tiradas = 0;
-  
-    while ($tiradas < 3) {
-  
-        $dado1 = jugador1();
-        $puntos += $dado1;
-        $tiradas++;
-  
-        echo "La Tirada $tiradas: $dado1<br>";
-  
-    }
-  
-    echo "finalizado! <br>";
-    echo "La puntuación en total es de: $puntos<br>";
-  }
-  
-  main();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +12,6 @@ function jugador1() {
 </head>
 <body>
 <nav class="navbar navbar-expand-lg" style="background-color: #fff34a;" id="navbar">
-            <button class="nav-link" style="color: #4D4D4D;" id="nada">Vueling</button>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -50,19 +20,19 @@ function jugador1() {
             <div class="collapse navbar-collapse" id="navbarSupportedContent" >
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <button class="nav-link " id="log" >Login</button>
+                        <button class="nav-link " id="log" ><a class="nav-link" href="home.php">Exercici 1</a></button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link" id="reg">Register</button>
+                    <button class="nav-link " id="log" ><a class="nav-link" href="home.php">Exercici 2</a></button>
                     </li>
                     <li>
-                        <button class="nav-link" id="cfv">Viajes</button>
+                    <button class="nav-link " id="log" ><a class="nav-link" href="home.php">Exercici 3</a></button>
                     </li>
                 </ul>
                
             </div>
         </nav>
-
+<br>
     <form method="post">
         <button type="submit">Tiremos el dado !</button>
     </form>
@@ -76,3 +46,49 @@ function jugador1() {
     ?>
 </body>
 </html>
+
+<?php
+
+
+
+
+session_start();
+
+// Inicializar variables de sesión si aún no existen
+if (!isset($_SESSION['puntos'])) {
+    $_SESSION['puntos'] = 0;
+    $_SESSION['tiradas'] = 0;
+}
+
+
+
+  function jugador1() {
+   
+
+    $dado = ['dado1.jpg', 'dado2.jpg', 'dado3.jpeg', 'dado4.png', 'dado5.jpeg', 'dado6.png'];
+    $i = rand(0, count($dado) - 1);
+    print '<img src="'.$dado[$i] . '">';
+    return $i + 1; // Devolver el valor de la tirada
+}
+
+function main(): void {
+    if ($_SESSION['tiradas'] < 3) {
+        $dado1 = jugador1();
+        $_SESSION['puntos'] += $dado1;
+        $_SESSION['tiradas']++;
+
+        echo "Tirada: $dado1<br>";
+        echo "Puntos totales: {$_SESSION['puntos']}<br>";
+        echo "Tiradas restantes: " . (3 - $_SESSION['tiradas']) . "<br>";
+    } else {
+        echo "Juego finalizado<br>";
+        echo "Puntos totales: {$_SESSION['puntos']}<br>";
+        session_unset(); // Reiniciar el juego al recargar la página
+    }
+}
+
+main();
+
+?>
+
+

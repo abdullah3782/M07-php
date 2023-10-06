@@ -32,6 +32,10 @@ function myMenu(){
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="ex2.php">Exercici 2</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="ex3.php">Exercici 3</a>
+                    </li>
             </ul>
             </div>
             <h1><<<<<<<<<<< CHRISTMAS CARD >>>>>>>>>>>></></h1>
