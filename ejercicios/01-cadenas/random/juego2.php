@@ -46,6 +46,7 @@ if (isset($_SESSION['totalTiradas'])) {
 ?>
 
 <?php
+session_start();
 
 function jugador1() {
     $dado = ['dado1.jpg','dado2.jpg','dado3.jpeg','dado4.png','dado5.jpeg','dado6.png'];
@@ -62,28 +63,66 @@ function jugador2() {
 }
 
 function main(): void {
-    $puntos = 0;
-    $tiradas = 0;
-    $dado1 = jugador1();
-    $dado2 = jugador2();
-    while ($tiradas < 5) {
- 
+    // Inicia la sesión si no está iniciada
+    
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
 
-    $puntos += $dado1;
-    $puntos += $dado2;
 
-    $tiradas++;
-    if ($dado1 > $dado2) {
-        echo "Ha ganado el jugador 1 <br>";
-    } elseif ($dado2 > $dado1) {
-        echo "Ha ganado el jugador 2 <br>";
+    // Inicializa las variables de sesión si no están definidas
+    if (!isset($_SESSION['tiradas'])) {
+        $_SESSION['tiradas'] = 0;
+    }
+
+    if (!isset($_SESSION['puntos1'])) {
+        $_SESSION['puntos1'] = 0;
+    }
+
+    if (!isset($_SESSION['puntos2'])) {
+        $_SESSION['puntos2'] = 0;
+    }
+
+    if (!isset($_SESSION['puntos'])) {
+        $_SESSION['puntos'] = 0;
+    }
+
+    if ($_SESSION['tiradas'] < 5) {
+        $dado1 = jugador1();
+        $dado2 = jugador2();
+
+        if ($dado1 > $dado2) {
+            $_SESSION['puntos1'] += $dado1;
+            $_SESSION['puntos2'] += $dado2;
+
+        } else {
+            $_SESSION['puntos2'] += $dado2;
+            $_SESSION['puntos1'] += $dado1;
+
+        }
+
+        $_SESSION['tiradas']++;
+
+        echo "Tirada: $dado1<br>";
+        echo "Tirada: $dado2<br>";
+        echo "Puntos totales del jugador 1: {$_SESSION['puntos1']}<br>";
+        echo "Puntos totales del jugador 2: {$_SESSION['puntos2']}<br>";
+        echo "Tiradas restantes: " . (5 - $_SESSION['tiradas']) . "<br>";
+
+        // Incrementa los puntos generales solo cuando se ha completado una ronda.
+        $_SESSION['puntos']++;
     } else {
-        echo "Es un empate <br>";
-    }
-    }
-    echo "La Tirada $tiradas: $dado1<br>";
-    echo "La Tirada $tiradas: $dado2<br>";
+        echo "Juego finalizado<br>";
+        if ($_SESSION['puntos2']>$_SESSION['puntos1']) {
+            echo "Ha ganado el jugador 2<br>";
+        } else {
 
+            echo "Ha ganado el jugador 1<br>";
+ 
+        }
+        echo "Puntos totales: {$_SESSION['puntos']}<br>";
+        session_unset(); // Reiniciar el juego al recargar la página
+    }
 }
 
 main();
