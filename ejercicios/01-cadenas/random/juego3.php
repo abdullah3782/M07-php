@@ -50,25 +50,58 @@ session_start();
 
 function jugador1() {
     $dado1 = ['dado1.jpg','dado2.jpg','dado3.jpeg','dado4.png','dado5.jpeg','dado6.png'];
-    $i = rand(0, count($dado1) - 1);
-    echo '<div><h1>Jugador 1</h1><img src="'.$dado1[$i] . '"></div>';
-    return $i + 1;
+    $dado2 = ['dado1.jpg','dado2.jpg','dado3.jpeg','dado4.png','dado5.jpeg','dado6.png'];   
+    $i1 = rand(0, count($dado1)-1);
+    $i2 = rand(0, count($dado2)-1);
+    echo '<div>';
+    echo '<h3>Jugador 1</h3>';
+    echo '<img src="'.$dado1[$i1] . '">';
+    echo '<img src="'.$dado2[$i2] . '">';
+    echo '</div>';
+    $i1 ++;
+    $i2 ++;
+
+    return $i1 + $i2;
 }
 
+
 function jugador2() {
+    $dado1 = ['dado1.jpg','dado2.jpg','dado3.jpeg','dado4.png','dado5.jpeg','dado6.png'];
     $dado2 = ['dado1.jpg','dado2.jpg','dado3.jpeg','dado4.png','dado5.jpeg','dado6.png'];
-    $i = rand(0, count($dado2) - 1);
-    echo '<div><h1>Jugador 2</h1><img src="'.$dado2[$i] . '"></div>';
-    return $i + 1;
+    
+    $i1 = rand(0, count($dado1) - 1);
+    $i2 = rand(0, count($dado2) - 1);
+
+    echo '<div>';
+    echo '<h3>Jugador 2</h3>';
+    echo '<img src="'.$dado1[$i1] . '">';
+    echo '<img src="'.$dado2[$i2] . '">';
+    echo '</div>';
+    $i1 ++;
+    $i2 ++;
+
+    return $i1 + $i2;
 }
+
 
 
 
 function jugador3() {
-    $dado3 = ['dado1.jpg','dado2.jpg','dado3.jpeg','dado4.png','dado5.jpeg','dado6.png'];
-    $i = rand(0, count($dado3) - 1);
-    echo '<div><h1>Jugador 3</h1><img src="'.$dado3[$i] . '"></div>';
-    return $i + 1;
+    $dado1 = ['dado1.jpg','dado2.jpg','dado3.jpeg','dado4.png','dado5.jpeg','dado6.png'];
+    $dado2 = ['dado1.jpg','dado2.jpg','dado3.jpeg','dado4.png','dado5.jpeg','dado6.png'];
+    
+    $i1 = rand(0, count($dado1) - 1);
+    $i2 = rand(0, count($dado2) - 1);
+
+    echo '<div>';
+    echo '<h3>Jugador 3</h3>';
+    echo '<img src="'.$dado1[$i1] . '">';
+    echo '<img src="'.$dado2[$i2] . '">';
+    echo '</div>';
+    $i1 ++;
+    $i2 ++;
+
+    return $i1 + $i2;
 }
 
 
@@ -104,24 +137,49 @@ function main(): void {
         $dado1 = jugador1();
         $dado2 = jugador2();
         $dado3 = jugador3();
+    
 
 
-        if ($dado1 > $dado2) {
-            $_SESSION['puntos3'] += 0;
-            $_SESSION['puntos2'] += 0;
+        if ($dado1 > $dado2 && $dado1 > $dado3) {
+          
             $_SESSION['puntos1'] +=1;
 
-        } else if ($dado1 < $dado2) {
-            $_SESSION['puntos3'] += 0;
+        } else if ($dado1 < $dado2  && $dado3 < $dado2) {
+            
             $_SESSION['puntos2'] +=1;
-            $_SESSION['puntos1'] += 0;
+        
 
-        } else if ($dado3 > $dado2) {
-            $_SESSION['puntos3'] += 1;
-            $_SESSION['puntos2'] +=0;
-            $_SESSION['puntos1'] += 0;
+        } else if ($dado3 > $dado2  && $dado3 > $dado1) {
+            $_SESSION['puntos3'] +=1;
+       
+
+        } else if ($dado1 == $dado2 && $dado2 == $dado3) {
+            $_SESSION['puntos3'] +=1;
+            $_SESSION['puntos2'] +=1;
+            $_SESSION['puntos1'] +=1;
+
+        }else if ($dado1 == $dado2 ) {
+            $_SESSION['puntos2'] +=1;
+            $_SESSION['puntos1'] +=1;
+
+        }else if ($dado3 == $dado2 ) {
+            $_SESSION['puntos3'] +=1;
+            $_SESSION['puntos2'] +=1;
+        
+
+        }else if ($dado3 == $dado1 ) {
+            $_SESSION['puntos3'] +=1;
+            $_SESSION['puntos1'] +=1;
 
         }
+
+
+
+
+
+
+
+
 
         $_SESSION['tiradas']++;
 

@@ -90,12 +90,11 @@ function main(): void {
         $dado2 = jugador2();
 
         if ($dado1 > $dado2) {
-            $_SESSION['puntos1'] += $dado1;
-            $_SESSION['puntos2'] += $dado2;
+            $_SESSION['puntos1'] +=1;
 
         } else {
-            $_SESSION['puntos2'] += $dado2;
-            $_SESSION['puntos1'] += $dado1;
+            $_SESSION['puntos2'] +=1;
+        
 
         }
 
