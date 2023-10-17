@@ -3,11 +3,8 @@ require __DIR__ . '/functions.php';
 myHeader();
 myMenu();
 
-$letter_template = <<<TEMPLATE
-Dear {{name}},
-Congratulations! You have been selected to be part of the Spanish national football team.
-I wish you the best!
-TEMPLATE;
+// Leer la plantilla de la carta desde el archivo
+$letter_template = file_get_contents('index.view.html');
 
 // Definir el array de jugadores
 $players = array(
@@ -33,12 +30,12 @@ $players = array(
     "Unai"
 );
 
-echo "<pre>"; // Iniciar la etiqueta <pre> para conservar el formato
+echo "<div id='carta-container'>";
 
 function make_letters($letter_template, $name_array) {
     $letters = array();
     foreach ($name_array as $name) {
-        $letter = strtr($letter_template, array('{{name}}' => $name));
+        $letter = strtr($letter_template, array('{{carta}}' => "Carta para $name:<br>" . htmlspecialchars("Dear $name,\nCongratulations! You have been selected to be part of the Spanish national football team.\nI wish you the best!\n\n")));
         $letters[$name] = $letter;
     }
     return $letters;
@@ -47,12 +44,11 @@ function make_letters($letter_template, $name_array) {
 // Generar las cartas y mostrarlas por pantalla
 $letters = make_letters($letter_template, $players);
 foreach ($letters as $name => $letter) {
-    echo "Carta para $name:<br>";
-    echo htmlspecialchars($letter); // Utilizar htmlspecialchars para evitar problemas con HTML
+    echo $letter;
     echo "<br><br>";
 }
 
-echo "</pre>"; // Cerrar la etiqueta <pre>
+echo "</div>";
 
 myFooter();
 ?>

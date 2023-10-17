@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 function myHeader(){
     $header = <<<CABECERA
         <!DOCTYPE html>
@@ -39,8 +36,11 @@ function myMenu(){
                                 <a class="nav-link" href="ejercicio2.php">ejercicio 2</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="juego3.php">Juego 3</a>
+                                <a class="nav-link" href="ejercicio3.php">ejercicio 3</a>
                             </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="ejercicio4.php">ejercicio 4</a>
+                        </li>
                         </ul>
 
                         
