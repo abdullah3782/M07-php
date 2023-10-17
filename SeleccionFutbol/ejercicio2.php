@@ -5,11 +5,10 @@ myMenu();
 
 $letter_template = <<<TEMPLATE
 Dear {{name}},
-Congratulations! You have been selected to be part of the Spanish national football team.
-I wish you the best!
+Felicidades, ¡Has sido seleccionado para formar parte del equipo nacional de fútbol de España! ¡Te deseo lo mejor!
 TEMPLATE;
 
-// Definir el array de jugadores
+// Definino el array de jugadores
 $players = array(
     "Alejandro",
     "Ansu",
@@ -33,7 +32,7 @@ $players = array(
     "Unai"
 );
 
-echo "<pre>"; // Iniciar la etiqueta <pre> para conservar el formato
+echo "<pre>"; // Inicio la etiqueta <pre> para conservar el formato
 
 function make_letters($letter_template, $name_array) {
     $letters = array();
@@ -48,11 +47,11 @@ function make_letters($letter_template, $name_array) {
 $letters = make_letters($letter_template, $players);
 foreach ($letters as $name => $letter) {
     echo "Carta para $name:<br>";
-    echo htmlspecialchars($letter); // Utilizar htmlspecialchars para evitar problemas con HTML
+    echo htmlspecialchars($letter); // Utilizo htmlspecialchars para evitar problemas con HTML
     echo "<br><br>";
 }
 
-echo "</pre>"; // Cerrar la etiqueta <pre>
+echo "</pre>"; // Cierro la etiqueta <pre>
 
 myFooter();
 ?>

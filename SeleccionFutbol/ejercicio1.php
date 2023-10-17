@@ -9,7 +9,7 @@ Congratulations! You have been selected to be part of the Spanish national footb
 I wish you the best!
 TEMPLATE;
 
-// Definir el array de jugadores
+// Defino el array de jugadores
 $players = array(
     "Alejandro",
     "Ansu",
@@ -33,7 +33,7 @@ $players = array(
     "Unai"
 );
 
-// Carpeta donde se guardarán los archivos
+// Carpeta donde se guardarán los archivos porque si no me lo soltará con todos los archivos php
 $folder = 'mensajesTxt/';
 
 function make_letters($letter_template, $name_array) {
@@ -45,10 +45,10 @@ function make_letters($letter_template, $name_array) {
     return $letters;
 }
 
-// Generar las cartas
+// Genero las cartas
 $letters = make_letters($letter_template, $players);
 
-// Guardar las cartas en archivos
+// Guardo las cartas en archivos
 foreach ($letters as $name => $letter) {
     $filename = $folder . $name . '.txt';
     file_put_contents($filename, $letter);
