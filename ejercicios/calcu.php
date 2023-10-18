@@ -51,7 +51,7 @@
 
     <form action="" method="get">
         <div>
-            Escoge un numero entre 0 y 20 : <input type="text" name="numero" placeholder="pon tu edad" value="<?php echo isset($_GET['numero']) ? $_GET['numero'] : ''; ?>">
+            Escoge un numero entre 0 y 20 : <input type="text" name="numero" placeholder="pon tu edad" value="">
         </div>
         <div>
             <input type="submit" value="Mostrar Tabla">
