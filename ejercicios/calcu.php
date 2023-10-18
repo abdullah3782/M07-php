@@ -33,7 +33,7 @@
 
     <?php
     if (isset($_GET['numero'])) {
-        $numero = intval($_GET['numero']); // Convierte la cadena a entero
+        $numero = intval($_GET['numero']); 
 
         echo "<table class='table'>";
         echo "<thead><tr><th>Multiplicador</th><th>Resultado</th></tr></thead>";
