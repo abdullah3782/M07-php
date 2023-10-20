@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+      
+              background-image: url('/formulario/img/background.jpg'); /* Reemplaza 'ruta/de/tu/imagen.jpg' con la ruta real de tu imagen */
+
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+form .error {
+    border-color: #ff0000;
+}
+
+form button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+small {
+    color: #ff0000;
+}
+
+section {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
