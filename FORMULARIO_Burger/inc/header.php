@@ -9,7 +9,7 @@
 <body>
     <main>
         <div class="center-image">
-            <img src="burguer.png" alt="imagen">
+        
         </div>
     </main>
 </body>
