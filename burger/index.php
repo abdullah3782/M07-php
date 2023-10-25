@@ -20,3 +20,4 @@ if ($request_method === 'GET') {
     }
 }
 
+require __DIR__ .  '/inc/footer.php';

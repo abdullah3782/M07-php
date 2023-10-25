@@ -8,9 +8,8 @@
 </head>
 <body>
     <main>
-        <div class="center-image">
-        
-        </div>
+     
     </main>
+    
 </body>
 </html>

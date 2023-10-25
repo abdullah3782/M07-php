@@ -1,7 +1,6 @@
 body {
     font-family: Arial, sans-serif;
     background-image: url('/img/burguer.png'); /* Ruta a tu imagen de fondo */
-    background-color: #f4f4f4;
     background-size: cover;
     background-attachment: fixed;
     margin: 0;
@@ -9,9 +8,21 @@ body {
     margin-top: 13%;
 }
 
+#contra {
+width: 101%;
+padding: 1.5%;
+
+}
+
+#LogButton {
+
+margin-left: 40%;
+
+}
+
 header {
     background-color: #333;
-    color: #fff;
+    color: white;
     text-align: center;
     padding: 20px;
 }
@@ -23,7 +34,6 @@ header h1 {
 form {
     max-width: 400px;
     margin: 0 auto;
-    background-color: #fff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -87,3 +97,46 @@ section {
     margin-bottom: 50%;
 }
 
+footer {
+    margin-top: 10%;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-section {
+    max-width: 300px;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-section p, .footer-section ul {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
