@@ -28,7 +28,7 @@
                     <a href="./inc/formulario.php"><button class="nav-link" id="log" style="color: white;" >Menu</button></a> 
                 </li>
                 <li class="nav-item">
-                    <a href="./inc/formulario.php"><button class="nav-link" id="log" style="color: white;" >Register</button></a> 
+                    <a href="./inc/register.php"><button class="nav-link" id="log" style="color: white;" >Register</button></a> 
                 </li>
                 <li class="nav-item">
                     <a href="./inc/formulario.php"><button class="nav-link" id="log" style="color: white;" >Pedir ahora</button></a> 

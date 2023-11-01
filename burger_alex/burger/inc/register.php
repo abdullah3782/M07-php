@@ -1,8 +1,10 @@
 <?php
 require 'header.php';
+
 const NAME_REQUIRED = 'Please enter your name';
 const EMAIL_REQUIRED = 'Please enter your email';
 const EMAIL_INVALID = 'Please enter a valid email';
+const PASSWORD_REQUIRED = 'Please enter a password';
 
 $errors = [];
 $inputs = [];
@@ -32,6 +34,14 @@ if ($email) {
     }
 } else {
     $errors['email'] = EMAIL_REQUIRED;
+}
+
+// validate password
+$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+$inputs['password'] = $password;
+
+if (!$password) {
+    $errors['password'] = PASSWORD_REQUIRED;
 }
 ?>
 
@@ -129,32 +139,33 @@ if ($email) {
 <?php if (empty($errors)) : ?>
     <section>
         <h2>
-            Thanks <?php echo htmlspecialchars($name) ?> for your subscription!
+            Thanks <?php echo htmlspecialchars($name) ?> for registering!
         </h2>
-        <p>Please follow the steps below to complete your subscription:</p>
-        <ol>
-            <li>Check your email (<?php echo htmlspecialchars($email) ?>) - Find the message sent from webmaster@phptutorial.net</li>
-            <li>Click to confirm - Click on the link in the email to confirm your subscription.</li>
-        </ol>
+        <p>Your account has been created successfully.</p>
     </section>
 <?php endif; ?>
 
 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
     <header>
         <h3>BurgerHouse</h3>
-        <h2>Login</h2>
+        <h2>Register</h2>
     </header>
     <div>
-        <label for="email">Mail:</label>
-        <input type="text" name="email" id="email" placeholder="Mail" value="<?php echo htmlspecialchars($inputs['email'] ?? '') ?>" class="<?php echo isset($errors['email']) ? 'error' : '' ?>">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" placeholder="Name" value="<?php echo htmlspecialchars($inputs['name'] ?? '') ?>" class="<?php echo isset($errors['name']) ? 'error' : '' ?>">
+        <small><?php echo $errors['name'] ?? '' ?></small>
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email" placeholder="Email" value="<?php echo htmlspecialchars($inputs['email'] ?? '') ?>" class="<?php echo isset($errors['email']) ? 'error' : '' ?>">
         <small><?php echo $errors['email'] ?? '' ?></small>
     </div>
     <div>
-        <label for="contra">Contraseña:</label>
-        <input type="password" name="password" id="contra" placeholder="Contraseña" value="<?php echo htmlspecialchars($inputs['password'] ?? '') ?>" class="<?php echo isset($errors['password']) ? 'error' : '' ?>">
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" placeholder="Password" value="<?php echo htmlspecialchars($inputs['password'] ?? '') ?>" class="<?php echo isset($errors['password']) ? 'error' : '' ?>">
         <small><?php echo $errors['password'] ?? '' ?></small>
     </div>
-    <button type="submit" id="LogButton">Login</button>
+    <button type="submit" id="RegisterButton">Register</button>
 </form>
 
 </body>
