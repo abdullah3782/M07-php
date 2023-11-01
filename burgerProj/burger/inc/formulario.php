@@ -1,5 +1,4 @@
 <?php
-
 require __DIR__ . '/header2.php';
 ?>
 
@@ -58,58 +57,60 @@ require __DIR__ . '/header2.php';
         .form-check {
             margin-bottom: 8px;
         }
+
         footer {
-    margin-top: 55%;
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-}
+            margin-top: 55%;
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
 
-.footer-container {
-    display: flex;
-    justify-content: space-around;
-}
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+        }
 
-.footer-section {
-    max-width: 300px;
-}
+        .footer-section {
+            max-width: 300px;
+        }
 
-.footer-section h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
 
-.footer-section p, .footer-section ul {
-    font-size: 14px;
-    margin: 0;
-    padding: 0;
-}
+        .footer-section p,
+        .footer-section ul {
+            font-size: 14px;
+            margin: 0;
+            padding: 0;
+        }
 
-.footer-section ul {
-    list-style: none;
-}
+        .footer-section ul {
+            list-style: none;
+        }
 
-.footer-section ul li {
-    margin-bottom: 5px;
-}
+        .footer-section ul li {
+            margin-bottom: 5px;
+        }
 
-.footer-section a {
-    color: #fff;
-    text-decoration: none;
-}
+        .footer-section a {
+            color: #fff;
+            text-decoration: none;
+        }
 
-.footer-section a:hover {
-    text-decoration: underline;
-}
-#search {
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
 
-    margin-left: 350%;
-  }
-  #searchBar {
+        #search {
+            margin-left: 350%;
+        }
 
-    margin-left: 230%;
-    margin-bottom: -17%;
-  }
+        #searchBar {
+            margin-left: 230%;
+            margin-bottom: -17%;
+        }
     </style>
 </head>
 <body>
@@ -155,10 +156,37 @@ require __DIR__ . '/header2.php';
             </div>
             <!-- Repeat the structure for other ingredients -->
         </div>
+
+        <!-- Nuevas secciones -->
+        <div class="mt-4">
+            <p>Ofertas del día:</p>
+            <!-- Listado de ofertas, precio y cantidad -->
+            <!-- Puedes usar una caja numérica para la cantidad -->
+        </div>
+
+        <div class="mt-4">
+            <p>Bocadillos personalizados:</p>
+            <!-- Campos para personalizar los bocadillos -->
+            <input type="number" name="cantidad_personalizados" placeholder="Cantidad">
+            <br>
+            <input type="radio" name="tamano" value="mini"> Mini
+            <input type="radio" name="tamano" value="mediano"> Mediano
+            <input type="radio" name="tamano" value="grande"> Grande
+            <br>
+            <select name="tipo_pan">
+                <option value="barra">Pan de barra</option>
+                <option value="sandwich">Pan sándwich</option>
+                <option value="pages">Pan de pagés</option>
+            </select>
+            <br>
+            <!-- Más opciones... -->
+        </div>
     </div>
+
+</form>
+
 </body>
 </html>
 <?php
-
 require __DIR__ . '/footer.php';
 ?>
