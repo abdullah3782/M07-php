@@ -3,7 +3,7 @@
 <head>
     <title>Página de Inicio</title>
     <style>
-        /* Estilos para la barra de navegación */
+       
         ul.navbar {
             list-style-type: none;
             margin: 0;
@@ -25,9 +25,9 @@
 <head>
     <title>Página de Inicio</title>
     <style>
-        /* Estilos para el fondo de la página */
+       
         body {
-            background-image: url('../burger/img/burguer.png'); /* Cambia 'ruta_de_la_imagen.jpg' a la URL o ruta de tu imagen de fondo */
+            background-image: url('../burger/img/burguer.png'); 
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -35,7 +35,7 @@
             font-family: Arial, sans-serif;
         }
 
-        /* Estilos para la barra de navegación */
+       
         ul.navbar {
             list-style-type: none;
             margin: 0;
@@ -57,7 +57,7 @@
             color: white;
         }
 
-        h1, h2 {
+        h1, h2, h3 {
             text-align: center;
         }
     </style>
@@ -66,28 +66,14 @@
    
 
     <h1>Burguer House</h1>
-    <h1>¡Tus hamburguesas te llaman!</h1>
+    <h2>¡Tus hamburguesas te llaman!</h2>
+    <h3>¡Registrate, compra o crea lo que es tuyo!</h3>
 
-    <?php
-        
-    ?>
+    
 </body>
 </html>
 
 </head>
-<body>
-    
 
-    <h1>Burguer House</h1>
-    <h2>Selecciona
-
-    <?php
-    ?>
-</body>
 </html>
 
-<?php 
-
-
-
-?>

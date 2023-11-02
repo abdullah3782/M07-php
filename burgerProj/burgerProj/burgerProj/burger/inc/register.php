@@ -10,7 +10,7 @@ const EMAIL_ALREADY_REGISTERED = 'Email is already registered';
 $errors = [];
 $inputs = [];
 
-// sanitize and validate name
+
 $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
 $inputs['name'] = $name;
 
@@ -23,17 +23,17 @@ if ($name) {
     $errors['name'] = NAME_REQUIRED;
 }
 
-// sanitize & validate email
+
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 $inputs['email'] = $email;
 
 if ($email) {
-    // validate email
+  
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
     if ($email === false) {
         $errors['email'] = EMAIL_INVALID;
     } else {
-        // Verifica si el correo electrónico ya está registrado
+    
         $registeredUsers = file('registered_users.txt', FILE_IGNORE_NEW_LINES);
         foreach ($registeredUsers as $user) {
             $userData = explode(', ', str_replace(['Name: ', 'Email: ', 'Password: '], '', $user));
@@ -47,7 +47,7 @@ if ($email) {
     $errors['email'] = EMAIL_REQUIRED;
 }
 
-// validate password
+
 $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 $inputs['password'] = $password;
 
@@ -56,18 +56,18 @@ if (!$password) {
 }
 
 if (empty($errors)) {
-    // Hash the password securely (you should use a stronger hashing mechanism in production)
+  
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
-    // Set session variable with the user's email
+
     $_SESSION['user'] = $email;
 
-    // Guardar el nombre, correo y contraseña (hash) en un archivo de texto
+  
     $userDetails = "Name: $name, Email: $email, Password: $hashedPassword" . PHP_EOL;
     file_put_contents('registered_users.txt', $userDetails, FILE_APPEND);
 
     header('Location: login.php');
-    exit; // Asegura que el script se detenga después de la redirección
+    exit;
 }
 ?>
 <!DOCTYPE html>
@@ -76,7 +76,7 @@ if (empty($errors)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* Paste the CSS styles here */
+       
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f4f4f4;

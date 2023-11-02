@@ -2,11 +2,19 @@
 require __DIR__ . '/header2.php';
 session_start();
 
-// Verifica si el usuario ha iniciado sesión
+
 if (!isset($_SESSION['user'])) {
-    header('Location: login.php'); // Redirige al usuario a la página de inicio de sesión si no ha iniciado sesión
+    header('Location: login.php'); 
     exit;
 }
+
+
+ if (isset($_SESSION['user'])) : ?>
+     <nav style="background-color: black;" id="navbar">            
+    
+     <a href="#" class="nav-link" style="color: white;">¡Hola, <?php echo $_SESSION['user']; ?>!</a>
+    </nav>
+<?php endif; 
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +22,7 @@ if (!isset($_SESSION['user'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customize Your Order</title>
+   
     <link rel="stylesheet" href="/burger/css/style.css">
     <style>
         body {
@@ -26,12 +34,18 @@ if (!isset($_SESSION['user'])) {
 
         .container {
             max-width: 600px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            box-sizing: border-box;
+  max-height: 500px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  position: absolute; 
+  top: 20%; 
+  right: 100px; 
+  margin-top: 20%;
+           
         }
 
         input[type="checkbox"],
@@ -41,8 +55,11 @@ if (!isset($_SESSION['user'])) {
 
         label {
             display: inline-block;
-            margin-bottom: 8px;
+            margin-bottom: 9px;
+            margin-left:9px;
         }
+
+       
 
         .row {
             display: flex;
@@ -54,7 +71,17 @@ if (!isset($_SESSION['user'])) {
         }
 
         .mt-4 {
-            margin-top: 16px;
+            border: 60px;
+            height:696px;
+            width: 698px;
+            border: 2px solid black;
+            border-radius: 19px;
+            margin: 50px;
+        }
+
+        .boton{
+            margin: left 30px;
+
         }
 
         p {
@@ -117,20 +144,23 @@ if (!isset($_SESSION['user'])) {
             margin-left: 230%;
             margin-bottom: -17%;
         }
+
+
+
+
     </style>
 </head>
 <body>
-    <div class="mt-4">
-        <form method="post" action="pedido.php">
-            <p>USUARIO:</p>
 
+    <div class="mt-4">
+        <form method="post" action="pedido.php" >
             <label for="nombre">Nombre:</label>
             <input type="text" name="nombre" id="nombre">
 
             <label for="correo">Correo electrónico:</label>
             <input type="email" name="correo" id="correo">
 
-            <p>Choose the quantity:</p>
+            <p>CANTIDAD:</p>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="tamanio[]" id="grande" value="2">
                 <label class="form-check-label" for="grande">Large</label> <br>
@@ -152,7 +182,7 @@ if (!isset($_SESSION['user'])) {
                 <input type="text" name="cantidad_extrasmall" id="cantidad_extrasmall">
             </div>
 
-            <div class="mt-4">
+            <div >
                 <label for="tipo_pan">Choose the type of bread:</label>
                 <select name="tipo_pan" id="tipo_pan">
                     <option value="blanco">White Bread</option>
@@ -161,40 +191,51 @@ if (!isset($_SESSION['user'])) {
                 </select>
             </div>
 
-            <div class="mt-4">
-                <p>Choose the ingredients:</p>
+            <div >
+                <p>INGREDIENTES:</p>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="ingredientes[]" id="ingrediente1" value="0.25">
-                    <label class="form-check-label" for="ingrediente1">Ingredient 1</label>
+                    <label class="form-check-label" for="ingrediente1">Mayonesa</label>
                     <label for="cantidad_ingrediente1">Cantidad:</label>
                     <input type="text" name="cantidad_ingrediente1" id="cantidad_ingrediente1">
                 </div>
 
                 <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="ingredientes[]" id="ingrediente4" value="0.25">
+                    <label class="form-check-label" for="ingrediente4">Kétchup</label>
+                    <label for="cantidad_ingrediente4">Cantidad:</label>
+                    <input type="text" name="cantidad_ingrediente4" id="cantidad_ingrediente4">
+                </div>
+
+                <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="ingredientes[]" id="ingrediente2" value="0.25">
-                    <label class="form-check-label" for="ingrediente2">Ingredient 2</label>
+                    <label class="form-check-label" for="ingrediente2">Pepinillo</label>
                     <label for="cantidad_ingrediente2">Cantidad:</label>
                     <input type="text" name="cantidad_ingrediente2" id="cantidad_ingrediente2">
                 </div>
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="ingredientes[]" id="ingrediente3" value="0.25">
-                    <label class="form-check-label" for="ingrediente3">Ingredient 3</label>
+                    <label class="form-check-label" for="ingrediente3">Bacon</label>
                     <label for="cantidad_ingrediente3">Cantidad:</label>
                     <input type="text" name="cantidad_ingrediente3" id="cantidad_ingrediente3">
                 </div>
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="ingredientes[]" id="ingrediente4" value="0.25">
-                    <label class="form-check-label" for="ingrediente4">Ingredient 4</label>
+                    <label class="form-check-label" for="ingrediente4">Patatas</label>
                     <label for="cantidad_ingrediente4">Cantidad:</label>
                     <input type="text" name="cantidad_ingrediente4" id="cantidad_ingrediente4">
                 </div>
+                <button type="submit" class="btn btn-primary " name="submit" class="boton" >Enviar</button>
+                
             </div>
 
-            <button type="submit" class="btn btn-primary mt-4" name="submit">Enviar</button>
+            
         </form>
     </div>
+   
+
     
 </body>
 </html>

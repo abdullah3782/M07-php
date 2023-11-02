@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-image: url('/img/burguer.png'); /* Ruta a tu imagen de fondo */
+    background-image: url('/img/burguer.png'); 
     background-size: cover;
     background-attachment: fixed;
     margin: 0;
@@ -87,14 +87,14 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Centramos verticalmente en la altura de la ventana */
+    height: 100vh;
     margin-bottom: -70%;
 
 }
 
 .center-image img {
-    max-width: 100%; /* Asegura que la imagen no sea más ancha que el contenedor */
-    max-height: 100%; /* Asegura que la imagen no sea más alta que el contenedor */
+    max-width: 100%; 
+    max-height: 100%; 
     margin-bottom: 50%;
 }
 
@@ -150,6 +150,8 @@ footer {
     margin-left: 230%;
     margin-bottom: -17%;
   }
+
+  
   
 
  

@@ -10,7 +10,7 @@ $errors = [];
 $inputs = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // sanitize & validate email
+    
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $inputs['email'] = $email;
 
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors['email'] = EMAIL_REQUIRED;
     }
 
-    // validate password
+   
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
     $inputs['password'] = $password;
 
@@ -27,16 +27,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty($errors)) {
-        // Verificar si las credenciales coinciden con los registros almacenados
+        
         $storedUserDetails = file('registered_users.txt', FILE_IGNORE_NEW_LINES);
         foreach ($storedUserDetails as $userDetail) {
             $userData = explode(', ', str_replace(['Name: ', 'Email: ', 'Password: '], '', $userDetail));
             if (isset($userData[1]) && isset($userData[2]) && $email === $userData[1] && password_verify($password, $userData[2])) {
-                // Las credenciales son válidas, inicia sesión y redirige
+                
                 $_SESSION['user'] = $email;
                 header('Location: formulario.php');
                 require __DIR__ . '/header2.php';
-                exit; // Asegura que el script se detenga después de la redirección
+                exit;
             }
         }
         $errors['login'] = LOGIN_INVALID;
@@ -115,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php if (isset($errors['login'])) : ?>
     <div style="color: red; text-align: center;">
         <p><?php echo $errors['login']; ?></p>
-        <p>Don't have an account? <a href="register.php">Register here</a></p>
+        <p>No tienes cuenta? <a href="register.php">Registrate aqui</a></p>
     </div>
 <?php endif; ?>
 

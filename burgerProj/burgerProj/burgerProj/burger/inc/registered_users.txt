@@ -1,0 +1,8 @@
+Name: alex, Email: alex@gmail.com, Password: $2y$10$xMj6tBTDsix9D8IzRtb2qOyD64zt.rfH8HxpWtjiZe3.bx1h9Wvby
+Name: navidad, Email: JOEL@GMAIL.COM, Password: $2y$10$uzqwocoAs8D7DwqG39aWKuR4SPB4uK4H8X/QySCz5/MZGRErEBP.2
+Name: ASDASD, Email: alexx@gmail.com, Password: $2y$10$FOawV.RRB5rUaJ7p.YfAfuIDKtXS2bZcZieOsOJj47tsovaxPeIKa
+Name: sdf, Email: alex.m.caro07@gmail.com, Password: $2y$10$RDSWKiJxf.vI2cD5YmnQ8eKnsM6MqfWvX4Bmds7FUrz2jJLTaTWjO
+Name: navidad, Email: DTM_Vankleiss@gmail.com, Password: $2y$10$hilPEa5zF1NEzaMlq1AJMeCPIO0QR1fQGLuZiglD69x6SIKeNcSAa
+Name: ASDASD, Email: alexsx@gmail.com, Password: $2y$10$MdDKxb/gjIgVIVe.l99umeLbCMRAHf62bcKBkoEfLRjpYHikhu78u
+Name: dasdasd, Email: aaa@gmail.com, Password: $2y$10$XVrv.DIDQmmw02QCeSRdAOrM9BTebzeFGQukU2gBmLHrerIscoKfK
+Name: Abdullah WB, Email: abdullah@gmail.com, Password: $2y$10$EhlGu76inaWzZmZ2fbSxzOQ841E7iR8HB93mv4Cz4k6EBBeBee6b2
