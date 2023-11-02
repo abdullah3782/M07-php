@@ -8,6 +8,7 @@
     <title>Subscribe</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -19,32 +20,20 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                    <a href="../index.php" class="nav-link" id="log" style="color: white;">Home</a>
+            <ul class="navbar-nav mr-auto" >
+                <li class="nav-item active" >
+                    <a href="./inc/login.php"><button class="nav-link" id="log" style="color: white;" >Login</button></a> 
                 </li>
-                <!-- Resto de los elementos del menú -->
+               
                 <li class="nav-item">
-                    <a href="formulario.php" class="nav-link" id="log" style="color: white;">Menu</a>
+                    <a href="./inc/register.php"><button class="nav-link" id="log" style="color: white;" >Register</button></a> 
                 </li>
-                <li class="nav-item">
-                    <a href="register.php" class="nav-link" id="log" style="color: white;">Register</a>
-                </li>
-                <?php if (isset($_SESSION['user'])) : ?>
-                    <!-- Muestra el botón de log out si hay una sesión activa -->
-                    <li class="nav-item">
-                    <a href="login.php" class="nav-link" id="log" style="color: white;">Log In</a>
-                    </li>
-                <?php else : ?>
-                    <!-- Muestra el botón de inicio de sesión si no hay una sesión activa -->
-                    <li class="nav-item">
-                    <a href="logout.php" class="nav-link" id="log" style="color: white;">Log Out</a>
-                    </li>
-                <?php endif; ?>
+                
             </ul>
         </div>
     </nav>
 </div>
+
 
 </body>
 

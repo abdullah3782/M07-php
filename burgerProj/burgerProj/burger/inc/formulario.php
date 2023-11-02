@@ -1,5 +1,12 @@
 <?php
 require __DIR__ . '/header2.php';
+session_start();
+
+// Verifica si el usuario ha iniciado sesión
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php'); // Redirige al usuario a la página de inicio de sesión si no ha iniciado sesión
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -188,5 +195,6 @@ require __DIR__ . '/header2.php';
             <button type="submit" class="btn btn-primary mt-4" name="submit">Enviar</button>
         </form>
     </div>
+    
 </body>
 </html>

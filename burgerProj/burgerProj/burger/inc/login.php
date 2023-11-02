@@ -3,53 +3,46 @@ session_start();
 require __DIR__ . '/header2.php';
 
 const EMAIL_REQUIRED = 'Please enter your email';
-const EMAIL_INVALID = 'Please enter a valid email';
+const PASSWORD_REQUIRED = 'Please enter a password';
+const LOGIN_INVALID = 'Invalid email or password';
 
 $errors = [];
 $inputs = [];
 
-$allowedUsers = [
-    'abdullah@gmail.com' => 'abdullah01',
-    'joel@gmail.com' => 'joel02',
-    'alex@gmail.com' => 'alex03',
-];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // sanitize & validate email
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $inputs['email'] = $email;
 
-// sanitize and validate email
-$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-$inputs['email'] = $email;
-
-if ($email) {
-    // validate email
-    $email = filter_var($email, FILTER_VALIDATE_EMAIL);
-    if ($email === false) {
-        $errors['email'] = EMAIL_INVALID;
+    if (!$email) {
+        $errors['email'] = EMAIL_REQUIRED;
     }
-} else {
-    $errors['email'] = EMAIL_REQUIRED;
-}
 
-// Check if the user is allowed
-$user = $allowedUsers[$email] ?? null;
-
-if (!$user) {
-    $errors['email'] = 'Invalid email or password';
-} else {
-    // Check password
+    // validate password
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-    if ($password !== $allowedUsers[$email]) {
-        $errors['password'] = 'Incorrect password';
-    }
-}
+    $inputs['password'] = $password;
 
-// Check if there are no errors and log in the user
-if (empty($errors)) {
-    // Set session variable with the user's email
-    $_SESSION['user'] = $email;
-    header('Location: formulario.php');
-    exit; // Asegura que el script se detenga después de la redirección
+    if (!$password) {
+        $errors['password'] = PASSWORD_REQUIRED;
+    }
+
+    if (empty($errors)) {
+        // Verificar si las credenciales coinciden con los registros almacenados
+        $storedUserDetails = file('registered_users.txt', FILE_IGNORE_NEW_LINES);
+        foreach ($storedUserDetails as $userDetail) {
+            $userData = explode(', ', str_replace(['Name: ', 'Email: ', 'Password: '], '', $userDetail));
+            if (isset($userData[1]) && isset($userData[2]) && $email === $userData[1] && password_verify($password, $userData[2])) {
+                // Las credenciales son válidas, inicia sesión y redirige
+                $_SESSION['user'] = $email;
+                header('Location: formulario.php');
+                require __DIR__ . '/header2.php';
+                exit; // Asegura que el script se detenga después de la redirección
+            }
+        }
+        $errors['login'] = LOGIN_INVALID;
+    }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -119,12 +112,11 @@ if (empty($errors)) {
 </head>
 <body>
 
-<?php if (empty($errors)) : ?>
-    <section>
-        <h2>
-            Thanks <?php echo htmlspecialchars($user) ?> for logging in!
-        </h2>
-    </section>
+<?php if (isset($errors['login'])) : ?>
+    <div style="color: red; text-align: center;">
+        <p><?php echo $errors['login']; ?></p>
+        <p>Don't have an account? <a href="register.php">Register here</a></p>
+    </div>
 <?php endif; ?>
 
 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">

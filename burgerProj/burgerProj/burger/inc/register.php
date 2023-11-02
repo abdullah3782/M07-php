@@ -5,6 +5,7 @@ const NAME_REQUIRED = 'Please enter your name';
 const EMAIL_REQUIRED = 'Please enter your email';
 const EMAIL_INVALID = 'Please enter a valid email';
 const PASSWORD_REQUIRED = 'Please enter a password';
+const EMAIL_ALREADY_REGISTERED = 'Email is already registered';
 
 $errors = [];
 $inputs = [];
@@ -31,6 +32,16 @@ if ($email) {
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
     if ($email === false) {
         $errors['email'] = EMAIL_INVALID;
+    } else {
+        // Verifica si el correo electrónico ya está registrado
+        $registeredUsers = file('registered_users.txt', FILE_IGNORE_NEW_LINES);
+        foreach ($registeredUsers as $user) {
+            $userData = explode(', ', str_replace(['Name: ', 'Email: ', 'Password: '], '', $user));
+            if (isset($userData[1]) && $email === $userData[1]) {
+                $errors['email'] = EMAIL_ALREADY_REGISTERED;
+                break;
+            }
+        }
     }
 } else {
     $errors['email'] = EMAIL_REQUIRED;
@@ -45,13 +56,20 @@ if (!$password) {
 }
 
 if (empty($errors)) {
+    // Hash the password securely (you should use a stronger hashing mechanism in production)
+    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
     // Set session variable with the user's email
     $_SESSION['user'] = $email;
-    header('Location: formulario.php');
+
+    // Guardar el nombre, correo y contraseña (hash) en un archivo de texto
+    $userDetails = "Name: $name, Email: $email, Password: $hashedPassword" . PHP_EOL;
+    file_put_contents('registered_users.txt', $userDetails, FILE_APPEND);
+
+    header('Location: login.php');
     exit; // Asegura que el script se detenga después de la redirección
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
