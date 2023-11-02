@@ -79,8 +79,7 @@ require __DIR__ . '/header2.php';
             margin-bottom: 10px;
         }
 
-        .footer-section p,
-        .footer-section ul {
+        .footer-section p, .footer-section ul {
             font-size: 14px;
             margin: 0;
             padding: 0;
@@ -114,79 +113,80 @@ require __DIR__ . '/header2.php';
     </style>
 </head>
 <body>
-    <div class="container mt-4">
-        <div class="row">
-            <div class="col-md-6">
-                <input type="checkbox" id="ofertaCheckbox">
-                <label for="ofertaCheckbox">Special Offer</label>
-            </div>
-            <div class="col-md-6 text-right">
-                <input type="checkbox" id="personalizarCheckbox">
-                <label for="personalizarCheckbox">Customize Order</label>
-            </div>
-        </div>
+    <div class="mt-4">
+        <form method="post" action="pedido.php">
+            <p>USUARIO:</p>
 
-        <div class="mt-4">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombre">
+
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" name="correo" id="correo">
+
             <p>Choose the quantity:</p>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="tamanio" id="grande">
-                <label class="form-check-label" for="grande">
-                    Large
-                </label>
+                <input class="form-check-input" type="radio" name="tamanio[]" id="grande" value="2">
+                <label class="form-check-label" for="grande">Large</label> <br>
+                <label for="cantidad_grande">Cantidad:</label>
+                <input type="text" name="cantidad_grande" id="cantidad_grande">
             </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="tamanio" id="small">
-                <label class="form-check-label" for="small">
-                    Small
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="tamanio" id="extrasmall">
-                <label class="form-check-label" for="extrasmall">
-                    Extra Small
-                </label>
-            </div>
-        </div>
 
-        <div class="mt-4">
-            <p>Choose the ingredients:</p>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="ingrediente1">
-                <label class="form-check-label" for="ingrediente1">Ingredient 1</label>
+                <input class="form-check-input" type="radio" name="tamanio[]" id="small" value="1.5">
+                <label class="form-check-label" for="small">Small</label><br>
+                <label for="cantidad_small">Cantidad:</label>
+                <input type="text" name="cantidad_small" id="cantidad_small">
             </div>
-            <!-- Repeat the structure for other ingredients -->
-        </div>
 
-        <!-- Nuevas secciones -->
-        <div class="mt-4">
-            <p>Ofertas del día:</p>
-            <!-- Listado de ofertas, precio y cantidad -->
-            <!-- Puedes usar una caja numérica para la cantidad -->
-        </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="tamanio[]" id="extrasmall" value="1">
+                <label class="form-check-label" for="extrasmall">Extra Small</label><br>
+                <label for="cantidad_extrasmall">Cantidad:</label>
+                <input type="text" name="cantidad_extrasmall" id="cantidad_extrasmall">
+            </div>
 
-        <div class="mt-4">
-            <p>Bocadillos personalizados:</p>
-            <!-- Campos para personalizar los bocadillos -->
-            <input type="number" name="cantidad_personalizados" placeholder="Cantidad">
-            <br>
-            <input type="radio" name="tamano" value="mini"> Mini
-            <input type="radio" name="tamano" value="mediano"> Mediano
-            <input type="radio" name="tamano" value="grande"> Grande
-            <br>
-            <select name="tipo_pan">
-                <option value="barra">Pan de barra</option>
-                <option value="sandwich">Pan sándwich</option>
-                <option value="pages">Pan de pagés</option>
-            </select>
-            <br>
-            <!-- Más opciones... -->
-        </div>
+            <div class="mt-4">
+                <label for="tipo_pan">Choose the type of bread:</label>
+                <select name="tipo_pan" id="tipo_pan">
+                    <option value="blanco">White Bread</option>
+                    <option value="integral">Whole Wheat Bread</option>
+                    <option value="centeno">Rye Bread</option>
+                </select>
+            </div>
+
+            <div class="mt-4">
+                <p>Choose the ingredients:</p>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="ingredientes[]" id="ingrediente1" value="0.25">
+                    <label class="form-check-label" for="ingrediente1">Ingredient 1</label>
+                    <label for="cantidad_ingrediente1">Cantidad:</label>
+                    <input type="text" name="cantidad_ingrediente1" id="cantidad_ingrediente1">
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="ingredientes[]" id="ingrediente2" value="0.25">
+                    <label class="form-check-label" for="ingrediente2">Ingredient 2</label>
+                    <label for="cantidad_ingrediente2">Cantidad:</label>
+                    <input type="text" name="cantidad_ingrediente2" id="cantidad_ingrediente2">
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="ingredientes[]" id="ingrediente3" value="0.25">
+                    <label class="form-check-label" for="ingrediente3">Ingredient 3</label>
+                    <label for="cantidad_ingrediente3">Cantidad:</label>
+                    <input type="text" name="cantidad_ingrediente3" id="cantidad_ingrediente3">
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="ingredientes[]" id="ingrediente4" value="0.25">
+                    <label class="form-check-label" for="ingrediente4">Ingredient 4</label>
+                    <label for="cantidad_ingrediente4">Cantidad:</label>
+                    <input type="text" name="cantidad_ingrediente4" id="cantidad_ingrediente4">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-4" name="submit">Enviar</button>
+        </form>
     </div>
-
-</form>
-
 </body>
 </html>
-<?php
-require __DIR__ . '/footer.php';
-?>
