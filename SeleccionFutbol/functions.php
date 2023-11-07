@@ -41,6 +41,12 @@ function myMenu(){
                             <li class="nav-item">
                             <a class="nav-link" href="ejercicio4.php">ejercicio 4</a>
                         </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="ejercicio5.php">ejercicio 5</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="login.php">login</a>
+                </li>
                         </ul>
 
                         
@@ -52,6 +58,53 @@ function myMenu(){
     echo '<hr>';
     
 }
+
+
+
+function myMenuLoged() {
+    $menu = <<<MENU
+        <div class="menu">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="home.php">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="listarjugadores.php">Listar Jugadores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout.php">Log Out</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="frases.php">Frases Motivadoras</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="frases.php">Votar Frase Motivadora</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="frases.php"> Recuento de Votos</a>
+            </li>
+            </ul>
+        </div>
+MENU;
+    echo $menu;
+    echo '<hr>';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function myFooter(){
     $footerHTML = <<<MYFOOTER

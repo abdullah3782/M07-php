@@ -68,7 +68,7 @@
     <h1>Burguer House</h1>
     <h2>¡Tus hamburguesas te llaman!</h2>
     <h3>¡Registrate, compra o crea lo que es tuyo!</h3>
-
+<img src="" alt="">
     
 </body>
 </html>
