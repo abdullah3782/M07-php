@@ -43,7 +43,7 @@ h1 {
         </table>
     </div>
 
-    <h1>Listado de Países y Capitales</h1>
+    <h1>Listados de Países y Capitales</h1>
     <div>
         <table>
             <tr>
