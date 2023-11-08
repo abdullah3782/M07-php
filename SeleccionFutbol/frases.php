@@ -17,4 +17,5 @@ foreach ($frases as $frase) {
 
 <?php
 myFooter();
+
 ?>
