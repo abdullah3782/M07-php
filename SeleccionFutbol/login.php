@@ -5,16 +5,15 @@ myHeader();
 myMenu();
 session_start();
 
-
 const EMAIL_REQUIRED = 'Please enter your email';
 const PASSWORD_REQUIRED = 'Please enter a password';
 const LOGIN_INVALID = 'Invalid email or password';
 
 $errors = [];
 $inputs = [];
+$email = ''; // Define the $email variable outside of conditionals
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $inputs['email'] = $email;
 
@@ -22,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors['email'] = EMAIL_REQUIRED;
     }
 
-   
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
     $inputs['password'] = $password;
 
@@ -46,6 +44,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors['login'] = LOGIN_INVALID;
     }
 }
+
+
+if (empty($errors)) {
+    $storedUserDetails = file('login.csv', FILE_IGNORE_NEW_LINES);
+    foreach ($storedUserDetails as $userDetail) {
+        $userData = explode(', ', str_replace(['Name: ', 'Email: ', 'Password: '], '', $userDetail));
+        if (isset($userData[1]) && isset($userData[2]) && $email === $userData[1] && password_verify($password, $userData[2])) {
+            // Verificar si la cookie de contador existe
+            if (isset($_COOKIE['login_count'])) {
+                $loginCount = intval($_COOKIE['login_count']);
+            } else {
+                $loginCount = 0;
+            }
+            
+            // Incrementar el contador
+            $loginCount++;
+            
+            // Establecer la cookie con el nuevo valor del contador
+            setcookie('login_count', $loginCount, time() + 3600, '/');
+            
+            $_SESSION['user'] = $email;
+            header('Location: entrenador_logeado.php');
+            require __DIR__ . '/header2.php';
+            exit;
+        }
+    }
+    $errors['login'] = LOGIN_INVALID;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

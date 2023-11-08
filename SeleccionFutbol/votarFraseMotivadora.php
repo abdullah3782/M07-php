@@ -16,24 +16,18 @@ if (isset($_POST['agregarFrase'])) {
 
 $contenido = file_get_contents($archivo);
 
-
-
 $frases = explode("\n", $contenido);
 
 foreach ($frases as $frase) {
     echo "<div>" . $frase . "</div>
         <form method='post' action='recuentodevotos.php'>
             <input type='hidden' name='frase' value='" . htmlspecialchars($frase) . "'>
+            <input type='submit' name='votar' value='Votar'>
         </form><br>";
 }
 
 ?>
 
-<form method="post" action="">
-    <label for="nuevaFrase">Nueva frase: </label>
-    <input type="text" name="nuevaFrase" id="nuevaFrase">
-    <input type="submit" name="agregarFrase" value="Agregar">
-</form>
 
 <?php
 myFooter();

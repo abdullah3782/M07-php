@@ -78,10 +78,10 @@ function myMenuLoged() {
                     <a class="nav-link" href="frases.php">Frases Motivadoras</a>
                 </li>
                  <li class="nav-item">
-                    <a class="nav-link" href="frases.php">Votar Frase Motivadora</a>
+                    <a class="nav-link" href="votarFraseMotivadora.php">Votar Frase Motivadora</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="frases.php"> Recuento de Votos</a>
+                <a class="nav-link" href="recuentodevotos.php"> Recuento de Votos</a>
             </li>
             </ul>
         </div>
@@ -89,19 +89,6 @@ MENU;
     echo $menu;
     echo '<hr>';
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -134,4 +121,9 @@ function mostar_img_array(array $array){
     }
 }
 
+
+//---------------------EJERCICIO1--------
+
 ?>
+
+
