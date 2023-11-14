@@ -62,6 +62,12 @@ h1 {
             }
             fclose($file_paises);
             ?>
+             <?php
+write_info_csv("prueba1.csv", [['hola']]);
+ $hola = read_info_csv_with_return ("prueba1.csv");
+ println($hola);
+?>
+
         </table>
     </div>
 </body>
