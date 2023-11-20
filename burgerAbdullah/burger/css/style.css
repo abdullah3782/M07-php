@@ -1,0 +1,157 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('/img/burguer.png'); 
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    margin-top: 13%;
+}
+
+#contra {
+width: 101%;
+padding: 1.5%;
+
+}
+
+#LogButton {
+
+margin-left: 40%;
+
+}
+
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+form .error {
+    border-color: #ff0000;
+}
+
+form button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+small {
+    color: #ff0000;
+}
+
+section {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.center-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-bottom: -70%;
+
+}
+
+.center-image img {
+    max-width: 100%; 
+    max-height: 100%; 
+    margin-bottom: 50%;
+}
+
+footer {
+    margin-top: 55%;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-section {
+    max-width: 300px;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-section p, .footer-section ul {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+#search {
+
+    margin-left: 350%;
+  }
+  #searchBar {
+
+    margin-left: 230%;
+    margin-bottom: -17%;
+  }
+
+  
+  
+
+ 

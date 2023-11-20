@@ -91,7 +91,16 @@ MENU;
 }
 
 
-
+function print_Array_Multidimensional_content(array $array)
+{
+    // Mostrar el array multidimensional
+    foreach ($array as $fila) {
+        foreach ($fila as $valor) {
+            echo $valor . " ";
+        }
+        echo "<br>";
+    }
+}
 
 function myFooter(){
     $footerHTML = <<<MYFOOTER
