@@ -1,28 +1,25 @@
 <?php
 
 require 'altacontacto.php';
-// Incluimos la clase Contacto
-include 'contacto.php';
+include 'Agenda.php';
 
-// Creamos instancias de Contacto
 try {
-    $contacto1 = new Contacto('Juan', 'Perez', '2008-05-15', 'juan@gmail.com');
-    $contacto2 = new Contacto('Maria', 'Gomez', '2009-02-20', 'maria@gmail.com');
-    $contacto3 = new Contacto('Carlos', 'Lopez', '1985-10-10', 'carlos@gmail.com');
+    $contacto1 = new Contacto('Shebi', 'Asghar', '20018-05-10', 'shebi@gmail.com');
+    $contacto2 = new Contacto('Abdullah', 'Waris', '2004-02-14', 'abdullah@gmail.com');
+    $contacto3 = new Contacto('Kamran', 'Kamran', '1985-10-10', 'kamran@gmail.com');
 
-    // Creamos un array para almacenar los contactos
     $contactos = [$contacto1, $contacto2, $contacto3];
 
-    // Ordenamos los contactos por edad
     usort($contactos, function ($a, $b) {
         return $a->getEdad() - $b->getEdad();
     });
 
-    // Mostramos en pantalla la lista de contactos ordenados por edad
     echo "<strong>Lista de contactos ordenados por edad:</strong>\n";
+    echo "<ul>";
     foreach ($contactos as $contacto) {
-        echo $contacto->getContactoInfo();
+        echo "<li>" . $contacto->getContactoInfo() . "</li>";
     }
+    echo "</ul>";
 } catch (InvalidArgumentException $e) {
     echo "Error: " . $e->getMessage();
 }
@@ -85,7 +82,7 @@ try {
 
         button {
             background-color: #ff6600;
-            color: #fff;
+            color: blue;
             padding: 10px 15px;
             border: none;
             border-radius: 4px;
@@ -93,7 +90,7 @@ try {
         }
 
         button:hover {
-            background-color: #cc5200;
+            background-color: greenyellow;
         }
 
         section {
@@ -115,7 +112,7 @@ try {
             border: 1px solid #ff0000;
         }
     </style>
-    <title>Your Page Title</title>
+    <title>Agenda</title>
 </head>
 <body>
 
@@ -138,17 +135,20 @@ try {
         <input type="text" name="name" id="name" placeholder="Name" value="<?php echo htmlspecialchars($inputs['name'] ?? '') ?>" class="<?php echo isset($errors['name']) ? 'error' : '' ?>">
         <small><?php echo $errors['name'] ?? '' ?></small>
     </div>
-    
-    <div>
-        <label for="apellido">Apellido:</label>
-        <input type="text" name="apellido" id="apellido" placeholder="Surname" value="<?php echo htmlspecialchars($inputs['apellido'] ?? '') ?>" class="<?php echo isset($errors['apellido']) ? 'error' : '' ?>">
-        <small><?php echo $errors['apellido'] ?? '' ?></small>
-    </div>
 
     <div>
         <label for="email">Email:</label>
         <input type="text" name="email" id="email" placeholder="Email" value="<?php echo htmlspecialchars($inputs['email'] ?? '') ?>" class="<?php echo isset($errors['email']) ? 'error' : '' ?>">
         <small><?php echo $errors['email'] ?? '' ?></small>
     </div>
+
+    <div>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" name="dob" id="dob" value="<?php echo htmlspecialchars($inputs['dob'] ?? '') ?>" class="<?php echo isset($errors['dob']) ? 'error' : '' ?>">
+        <small><?php echo $errors['dob'] ?? '' ?></small>
+    </div>
+
     <button type="submit" id="RegisterButton">Register</button>
+</form>
+
 </html>
