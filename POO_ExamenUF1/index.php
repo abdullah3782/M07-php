@@ -16,12 +16,12 @@ class ACBProyecto
     {
         // Incrementar el contador de visitas en cada carga de la página
         $_SESSION['visitas'] = isset($_SESSION['visitas']) ? $_SESSION['visitas'] + 1 : 1;
-
+    
         echo "<p>Visitas: {$_SESSION['visitas']}</p>";
-
+    
         // Obtener el valor de la cookie 'estilo' si está configurada
         $estilo = isset($_COOKIE['estilo']) ? $_COOKIE['estilo'] : '';
-
+    
         echo "<style>";
         // Aplicar estilos según el valor de la cookie 'estilo'
         switch ($estilo) {
@@ -39,14 +39,20 @@ class ACBProyecto
                 echo "body { background-color: white; font-size: 16px; }";
         }
         echo "</style>";
-
+    
         echo '<ul>';
         foreach ($this->clubes as $club) {
             $imagenPath = "images/logos_clubs/{$club}.png";
             echo "<li><a href='index.php?club={$club}'><img src='{$imagenPath}' alt='{$club}' width='100' height='100'></a></li>";
         }
+    
+        // Mostrar la opción de COMPRAR ENTRADAS siempre presente
+        $urlCompraEntradas = 'formulario.php'; // Cambia a la URL correcta si es necesario
+        echo " <br><li><a href='{$urlCompraEntradas}'>COMPRAR ENTRADAS PARA BARÇA</a></li>";
+    
         echo '</ul>';
     }
+    
 
     public function mostrarJugadores()
     {
@@ -116,7 +122,6 @@ class ACBProyecto
     }
 }
 
-// Crear una instancia de la clase ACBProyecto
 $proyectoACB = new ACBProyecto();
 
 // Mostrar los clubes
