@@ -19,11 +19,9 @@ class ACBProyecto
     
         echo "<p>Visitas: {$_SESSION['visitas']}</p>";
     
-        // Obtener el valor de la cookie 'estilo' si está configurada
         $estilo = isset($_COOKIE['estilo']) ? $_COOKIE['estilo'] : '';
     
         echo "<style>";
-        // Aplicar estilos según el valor de la cookie 'estilo'
         switch ($estilo) {
             case 'BARÇA':
                 echo "body { background-color: blue; font-size: 20px; }";
@@ -35,7 +33,6 @@ class ACBProyecto
                 echo "body { background-color: orange; font-size: 40px; }";
                 break;
             default:
-                // Estilo predeterminado si no hay cookie o el valor no coincide
                 echo "body { background-color: white; font-size: 16px; }";
         }
         echo "</style>";
@@ -47,7 +44,7 @@ class ACBProyecto
         }
     
         // Mostrar la opción de COMPRAR ENTRADAS siempre presente
-        $urlCompraEntradas = 'formulario.php'; // Cambia a la URL correcta si es necesario
+        $urlCompraEntradas = 'formulario.php'; 
         echo " <br><li><a href='{$urlCompraEntradas}'>COMPRAR ENTRADAS PARA BARÇA</a></li>";
     
         echo '</ul>';
@@ -111,7 +108,6 @@ class ACBProyecto
                 $jugador = array_combine($cabeceras, $fila);
                 $club = $jugador['CLUB'];
     
-                // Agregar el jugador al club correspondiente
                 $jugadores[$club][] = $jugador;
             }
         } else {
