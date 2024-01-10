@@ -107,7 +107,7 @@ class DBConnect{
     public function searchLine($productId) {
         $result = FALSE;
     
-        if ($this->openFile("categories.txt")) {
+        if ($this->openFile("a+")) {
             while (($line = fgets($this->getHandle())) !== false) {
                 $data = explode(',', $line);
     

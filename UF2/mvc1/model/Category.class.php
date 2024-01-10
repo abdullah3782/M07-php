@@ -37,7 +37,5 @@ class Category {
     public function writingNewLine() {
         return "\n$this->id;$this->name;"; // podríem volem algun mètode extrar de la classe que ens fos interessant i general
     }
-    public function searchById() {
-        return "\n$this->id;$this->name;"; 
-    }
+  
 }

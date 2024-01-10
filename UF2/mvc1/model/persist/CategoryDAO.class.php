@@ -85,10 +85,10 @@ class CategoryDAO implements ModelInterface {
     */
     public function searchById($id) {
 
-        $result=$this->dbConnect->searchLine($id->searchById());
+        $result=$this->dbConnect->realAllLines();
         
         if ($result==FALSE) {
-            $_SESSION['error']=ProductMessage::ERR_DAO['found'];
+            $_SESSION['error']=CategoryMessage::ERR_DAO['found'];
         }
         
         return $result;

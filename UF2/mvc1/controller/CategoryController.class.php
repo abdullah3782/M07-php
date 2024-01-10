@@ -65,7 +65,7 @@ class CategoryController implements ControllerInterface
             case "add": //opció de formulari
                 $this->add();
                 break;
-            case "search":
+            case "CategorySearchById":
                 $this->searchById();
             default: //en el cas que vinguem per primer cop a categories o no haguem escollit res de res, $request=NULL;
                 $this->view->display(); //mètode de la classe CategoryView.class.php
@@ -140,17 +140,18 @@ class CategoryController implements ControllerInterface
             $category = $this->model->searchById($categoryValid->getId());
 
             //si no hem trobat l'id...
-            if (is_null($category)) {
+            if (!is_null($category)) {
                 //afegim la categoria a l'arxiu
+                $_SESSION['info'] = CategoryMessage::INF_FORM['found'];
+
+               
+            } else {
                 $result = $this->model->searchById($categoryValid);
 
                 if ($result == TRUE) {
                     $_SESSION['info'] = CategoryMessage::INF_FORM['found'];
                     $categoryValid = NULL;
-                }
-            } else {
-                $_SESSION['error'] = CategoryMessage::ERR_FORM['inexists_id'];
-            }
+                }            }
         }
 
         $this->view->display("view/form/CategorySearchById.php", $categoryValid);
