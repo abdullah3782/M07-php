@@ -12,7 +12,10 @@ class ProductFormValidation {
     
     public static function checkData($fields) {
         $id=NULL;
+        $marca=NULL;
         $name=NULL;
+        $descripcio=NULL;
+        $precio=NULL;
         
         foreach ($fields as $field) {
             switch ($field) {

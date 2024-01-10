@@ -85,7 +85,13 @@ class ProductDAO implements ModelInterface {
     */
     public function searchById($id) {
 
-        //to do
+        $result=$this->dbConnect->searchLine($id->searchById());
+        
+        if ($result==FALSE) {
+            $_SESSION['error']=ProductMessage::ERR_DAO['select'];
+        }
+        
+        return $result;
 
     }
 

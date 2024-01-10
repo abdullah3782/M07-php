@@ -104,6 +104,24 @@ class DBConnect{
 
 	
 	//NOMÉS S'HI PODEN FICAR MÈTODES GENERALS PER A TOTS ELS FITXERS
-
+    public function searchLine($productId) {
+        $result = FALSE;
+    
+        if ($this->openFile("categories.txt")) {
+            while (($line = fgets($this->getHandle())) !== false) {
+                $data = explode(',', $line);
+    
+                if ($data[0] == $productId) {
+                    $result = TRUE;
+                    break; 
+                }
+            }
+    
+            $this->closeFile();
+        }
+    
+        return $result;
+    }
+    
 }
 ?>
