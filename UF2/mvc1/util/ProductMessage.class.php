@@ -14,9 +14,15 @@ class ProductMessage {
     const ERR_FORM =
         array(
             'empty_id'      => 'Id must be filled',
-            'empty_name'    => 'Name must be filled',
+            'empty_marca'    => 'Marca must be filled',
+            'empty_nom'    => 'Nom must be filled',
+            'empty_descripcio'    => 'Descripcio must be filled',
+            'empty_preu'    => 'Preu must be filled',
             'invalid_id'    => 'Id must be valid values',
-            'invalid_name'  => 'Name must be valid values',
+            'invalid_marca'  => 'Marca must be valid values',
+            'invalid_nom'  => 'Nom must be valid values',
+            'invalid_descripcio'  => 'Descripcio must be valid values',
+            'invalid_preu'  => 'Preu must be valid values',
             'exists_id'     => 'Id already exists',
             'not_exists_id' => 'Id not exists',
             'not_found'     => 'No data found',
