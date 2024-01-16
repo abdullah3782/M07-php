@@ -17,7 +17,7 @@ class Jugador
         $this->rol = $rol;
         $this->numDeGoles = $numDeGoles;
         $this->numeroDePartidosJugados = $numeroDePartidosJugados;
-    }
+    } 
 
     var $nombre;
     var $pais;
