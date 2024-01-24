@@ -10,7 +10,7 @@ I wish you the best!
 TEMPLATE;
 
 // Defino el array de jugadores
-$players = array(
+$players = array( 
     "Alejandro",
     "Ansu",
     "Carvajal",
