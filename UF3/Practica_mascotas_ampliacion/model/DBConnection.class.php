@@ -1,21 +1,22 @@
 <?php
 
+require_once("model/Config.php");
+
 class DBConnection
 {
     //atributs 
-    private $dsn = "mysql:host=localhost;dbname=mascotasclinic";
-    private $user = "abdu";
-    private $password = "abdu";
     private $dbh;
-    
+
+
+
     //mètode que necessitem per connectar-nos des dels altres
     //mètodes
-    private function connect()
+    public function connect()
     {
         $flag = true;
-
+        $config_db = new Config();
         try {
-            $this->dbh = new PDO($this->dsn, $this->user, $this->password);
+            $this->dbh = new PDO($config_db->dsn, $config_db->user, $config_db->password);
         } catch (PDOException $e) {
             $flag = false;
         }
@@ -37,7 +38,6 @@ class DBConnection
             try {
                 $sentencia = $this->dbh->prepare($sql);
             } catch (PDOException $e) {
-
             }
 
             if ($sentencia->execute($vector) != false) {
