@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function index() {
-        return "Aqui se mostrará el Listado de todos los POSTS";
+        return view('posts.index', ['prueba' =>'Este es un mensaje de DAW2']);
     }
 
     public function create() {
-        return "Let's create";
+        return view('posts.create');
     }
 
 
@@ -21,14 +21,15 @@ class PostController extends Controller
 
     public function show($post) {
 
-        return "Aqui se mostrara  el POST con ID($post)";
+        // return view('POSTS.show',
+        // ['post' => $post]);
 
-
+        return view ('posts.show', compact('post'));
     }
 
     public function edit($post) {
 
-        return "Aqui se mnostrara  el formulario para editar el post $post";
+        return view('posts.edit');
 
 
     }

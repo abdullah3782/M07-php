@@ -16,7 +16,8 @@
         </style>
     </head>
     <body class="antialiased">
-        <ul>
+        @include('partials.navigation')
+        {{-- <ul>
             <a href="{{route('posts.index')}}">Lista de Post</a>
             <li>
                <a href="{{route('posts.show', 1)}}">Post 1</a>
@@ -27,7 +28,7 @@
              <li>
                 <a href="/posts/3">Post 3</a>
              </li>
-        </ul>
+        </ul> --}}
 
         {{-- <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
             @if (Route::has('login'))
