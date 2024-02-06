@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\Post2Controller;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,10 +21,41 @@ use Illuminate\Support\Facades\Route;
 //  });
 
 // // cuando el usuario no pone nada ("/") nos redirigira a cursos ("/cursos") || para que esto funcione hay que comentar la linea get que tenga la /
- Route::view('/', 'welcome') -> name('home');
+$posts =[
+    ['title' => '1r Post'],
+    ['title' => '2n Post'],
+    ['title' => '3r Post'],
+    ['title' => '4r Post'],
+];
+
+ Route::view('/', 'options.welcomedaw2') -> name('home');
  Route::view('/contact', 'options.contact') -> name('contact');
- Route::view('/blog', 'options.blog') -> name('blog');
+ Route::view('/blog', 'options.blog',   ['posts' => $posts])  -> name('blog');
+
+//-----------------Otra Manaera de hacerlo---------------------
+// Route::get('/blog', function() {
+
+//     $posts =[
+//         ['title' => '1r Post'],
+//         ['title' => '2n Post'],
+//         ['title' => '3r Post'],
+//         ['title' => '4r Post'],
+//     ];
+
+//     return view('options.blog', ['posts'=> $posts]);
+
+// })->name('blog');
+
+
+Route::get('/blog', [Post2Controller::class, 'index']) -> name('blog');
+
+
+
+
+
  Route::view('/about', 'options.about') -> name('about');
+ Route::view('/listAll', 'options.listAll') -> name('listAll');
+
 
 // cuando el usuario no pone nada ("/") nos redirigira aqui
 // Route::get('/', function () {

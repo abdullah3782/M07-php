@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    @extends('layout.app')
-    @section('content')
-    <h1>Aqui About</h1>
+<!-- Extendemos el contenido con el diseño de esta  pagina -->
+@extends('layout.app')
 
-    @endsection
+<!-- Titulo de la paguina -->
+@section('title')
+    About
+@endsection
 
-
-</body>
-</html>
+<!-- Contenido de la paguina -->
+@section('content')
+    <!-- Contenido de la paguina -->
+    <h1>About</h1>
+@endsection

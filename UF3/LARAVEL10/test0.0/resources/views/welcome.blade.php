@@ -17,6 +17,7 @@
     </head>
     <body class="antialiased">
         @include('partials.navigation')
+
         {{-- <ul>
             <a href="{{route('posts.index')}}">Lista de Post</a>
             <li>

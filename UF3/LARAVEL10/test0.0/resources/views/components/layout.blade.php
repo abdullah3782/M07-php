@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title')</title>
+    <title>{{$title ?? 'daw2'}}</title>
 </head>
 <body>
-    <h1>Laravel</h1>
-@include('partials.navigation')
+ @include('partials.navigation')
 
 
 
-@yield('content')
+{{-- @yield('content') --}}
+<x-navigation/>
+
+    {{$slot}}
 </body>
 </html>
